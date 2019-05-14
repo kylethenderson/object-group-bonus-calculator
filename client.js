@@ -46,18 +46,57 @@ for ( let employee of employees ) {
 
 
 function employeeBonus(employee) {
-  console.log("In employeeBonus", employee);
-  let newEmployee = {};
+  // console.log("In employeeBonus");
 
-  console.log(calcBonus(employee));
+  let calculatedPercentage = calcBonus(employee);
+  let totalBonus = Math.floor(employee.annualSalary * calculatedPercentage);
+  let totalCompensation = Number(employee.annualSalary) + totalBonus;
+
+  // console.log(employee.name, "bonus dollars", totalBonus);
+
+  let newEmployee = {
+    name: employee.name,
+    bonusPercentage: calculatedPercentage,
+    totalBonus: totalBonus,
+    totalCompensation: totalCompensation
+  };
   return newEmployee;
 };
 
 function calcBonus(employee) {
-  console.log("In calcBonus", employee);
-  let bonusPercentage = .02; // hard coded bonus percentage of 2%
+  // console.log("In calcBonus");
+  let bonusPercentage = 0;
 
-  return bonusPercentage;
+  if ( employee.reviewRating <= 2 ) {
+    bonusPercentage = 0;
+  } 
+  else if ( employee.reviewRating === 3 ) {
+    bonusPercentage = 4;
+  }
+  else if ( employee.reviewRating === 4 ) {
+    bonusPercentage = 6;
+  }
+  else {
+    bonusPercentage = 10;
+  }
+  
+  if ( employee.employeeNumber.toString().length === 4 ) {
+    bonusPercentage = bonusPercentage + 5;
+  }
+
+  if ( employee.annualSalary > 65000 ) {
+    bonusPercentage = bonusPercentage - 1;
+  }
+
+  if ( bonusPercentage > 13 ) {
+    bonusPercentage = 13;
+  }
+  if ( bonusPercentage < 0 ) {
+    bonusPercentage = 0;
+  }
+  // console.log(employee.name, bonusPercentage);
+
+  return (bonusPercentage/100);
 }
 
 console.log( employees );

@@ -33,8 +33,8 @@ Write a declared function that takes in one **Employee** object (as an argument 
 
 * The `name` property should contain the employee's name.
 * The `bonusPercentage` property should contain the bonus percentage the employee is to receive. See section below for calculation instructions.
-* The `totalCompensation` property should be the adjusted annual compensation (base annual + bonus)
 * The `totalBonus` should be the employee's total bonus rounded to the nearest dollar.
+* The `totalCompensation` property should be the adjusted annual compensation (base annual + bonus)
 
 ### Individual Bonus calculation
 - Those who have a rating of a 2 or below should not receive a bonus.
