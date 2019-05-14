@@ -40,4 +40,24 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+for ( let employee of employees ) {
+  console.log(employeeBonus(employee));
+}
+
+
+function employeeBonus(employee) {
+  console.log("In employeeBonus", employee);
+  let newEmployee = {};
+
+  console.log(calcBonus(employee));
+  return newEmployee;
+};
+
+function calcBonus(employee) {
+  console.log("In calcBonus", employee);
+  let bonusPercentage = .02; // hard coded bonus percentage of 2%
+
+  return bonusPercentage;
+}
+
 console.log( employees );
