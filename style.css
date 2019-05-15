@@ -22,7 +22,16 @@ ul {
     list-style: none;
 }
 li {
+    border: 1px solid white;
+    border-radius: 5px;
+    height: 125px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
 
+}
+li h4 {
+    margin: 8px 0px;
 }
 li p {
     margin: 2px;

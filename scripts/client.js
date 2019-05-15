@@ -47,12 +47,14 @@ $(document).ready(function() {
 });
 
 function runBonuses() {
+  $('#employeeList').empty();
   for ( let employee of employees ) {
     let updatedEmployee = employeeBonus(employee);
     console.log(updatedEmployee);
     $('#employeeList').append(`<li id="` + employee.employeeNumber + `"></li>`);
-    $('#' + employee.employeeNumber).append(`<h4>Employee Name: ` + updatedEmployee.name + `</h4>`);
-    $('#' + employee.employeeNumber).append(`<p>Bonus Percentage: `+ updatedEmployee.bonusPercentage + `%</p>`);
+    $('#' + employee.employeeNumber).append(`<h4>Employee Name:</h4>`);
+    $('#' + employee.employeeNumber).append(`<h4>` + updatedEmployee.name + `</h4>`);
+    $('#' + employee.employeeNumber).append(`<p>Bonus Percentage: `+ updatedEmployee.bonusPercentage * 100 + `%</p>`);
     $('#' + employee.employeeNumber).append(`<p>Bonus Total: $`+ updatedEmployee.totalBonus + `</p>`);
     $('#' + employee.employeeNumber).append(`<p>Compensation: $` + updatedEmployee.totalCompensation + `</p>`);
   }
