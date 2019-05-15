@@ -58,6 +58,7 @@ function runBonuses() {
     $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalBonus + `</td`)
     $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalCompensation + `</td`)
   }
+  $('#runBonuses').attr('disabled', true).html('Bonuses Calculated');
 }
 
 function employeeBonus(employee) {
