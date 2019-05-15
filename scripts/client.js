@@ -40,7 +40,7 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-$(document).ready(function() {
+$(document).ready(function () {
   console.log('jquery');
 
   $('#runBonuses').on('click', runBonuses);
@@ -49,14 +49,14 @@ $(document).ready(function() {
 function runBonuses() {
   $('#employeeList').empty();
   $('#employeeList').append('<th>Employee Name</th><th>Bonus Percentage</th><th>Bonus Amount</th><th>Total Compensation</th>');
-  for ( let employee of employees ) {
+  for (let employee of employees) {
     let updatedEmployee = employeeBonus(employee);
     console.log(updatedEmployee);
     $('#employeeList').append(`<tr id="` + employee.employeeNumber + `"<tr>`);
-    $('#'+employee.employeeNumber).append(`<td>` + updatedEmployee.name + `</td`)
-    $('#'+employee.employeeNumber).append(`<td>` + updatedEmployee.bonusPercentage * 100 + `%</td`)
-    $('#'+employee.employeeNumber).append(`<td>$` + updatedEmployee.totalBonus + `</td`)
-    $('#'+employee.employeeNumber).append(`<td>$` + updatedEmployee.totalCompensation + `</td`)
+    $('#' + employee.employeeNumber).append(`<td>` + updatedEmployee.name + `</td`)
+    $('#' + employee.employeeNumber).append(`<td>` + updatedEmployee.bonusPercentage * 100 + `%</td`)
+    $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalBonus + `</td`)
+    $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalCompensation + `</td`)
   }
 }
 
@@ -82,36 +82,36 @@ function calcBonus(employee) {
   // console.log("In calcBonus");
   let bonusPercentage = 0;
 
-  if ( employee.reviewRating <= 2 ) {
+  if (employee.reviewRating <= 2) {
     bonusPercentage = 0;
-  } 
-  else if ( employee.reviewRating === 3 ) {
+  }
+  else if (employee.reviewRating === 3) {
     bonusPercentage = 4;
   }
-  else if ( employee.reviewRating === 4 ) {
+  else if (employee.reviewRating === 4) {
     bonusPercentage = 6;
   }
   else {
     bonusPercentage = 10;
   }
-  
-  if ( employee.employeeNumber.toString().length === 4 ) {
+
+  if (employee.employeeNumber.toString().length === 4) {
     bonusPercentage = bonusPercentage + 5;
   }
 
-  if ( employee.annualSalary > 65000 ) {
+  if (employee.annualSalary > 65000) {
     bonusPercentage = bonusPercentage - 1;
   }
 
-  if ( bonusPercentage > 13 ) {
+  if (bonusPercentage > 13) {
     bonusPercentage = 13;
   }
-  if ( bonusPercentage < 0 ) {
+  if (bonusPercentage < 0) {
     bonusPercentage = 0;
   }
   // console.log(employee.name, bonusPercentage);
 
-  return (bonusPercentage/100);
+  return (bonusPercentage / 100);
 }
 
-console.log( employees );
+console.log(employees);
