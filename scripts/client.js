@@ -44,6 +44,11 @@ for ( let employee of employees ) {
   console.log(employeeBonus(employee));
 }
 
+$(document).ready(function() {
+  console.log('jquery');
+
+  $('#runBonuses').on('click', runBonuses);
+});
 
 function employeeBonus(employee) {
   // console.log("In employeeBonus");

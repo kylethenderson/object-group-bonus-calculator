@@ -1,0 +1,17 @@
+body {
+    background-color: #334666;
+    color: white;
+    font-family: helvetica, sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 300;
+}
+section {
+    text-align: center;
+}
+button {
+    padding: 10px 20px;
+}
