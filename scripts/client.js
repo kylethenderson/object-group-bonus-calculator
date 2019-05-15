@@ -54,7 +54,7 @@ function runBonuses() {
     console.log(updatedEmployee);
     $('#employeeList').append(`<tr id="` + employee.employeeNumber + `"<tr>`);
     $('#'+employee.employeeNumber).append(`<td>` + updatedEmployee.name + `</td`)
-    $('#'+employee.employeeNumber).append(`<td>` + updatedEmployee.bonusPercentage + `%</td`)
+    $('#'+employee.employeeNumber).append(`<td>` + updatedEmployee.bonusPercentage * 100 + `%</td`)
     $('#'+employee.employeeNumber).append(`<td>$` + updatedEmployee.totalBonus + `</td`)
     $('#'+employee.employeeNumber).append(`<td>$` + updatedEmployee.totalCompensation + `</td`)
   }
