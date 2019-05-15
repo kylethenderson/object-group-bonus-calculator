@@ -40,15 +40,23 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
-for ( let employee of employees ) {
-  console.log(employeeBonus(employee));
-}
-
 $(document).ready(function() {
   console.log('jquery');
 
   $('#runBonuses').on('click', runBonuses);
 });
+
+function runBonuses() {
+  for ( let employee of employees ) {
+    let updatedEmployee = employeeBonus(employee);
+    console.log(updatedEmployee);
+    $('#employeeList').append(`<li id="` + employee.employeeNumber + `"></li>`);
+    $('#' + employee.employeeNumber).append(`<h4>Employee Name: ` + updatedEmployee.name + `</h4>`);
+    $('#' + employee.employeeNumber).append(`<p>Bonus Percentage: `+ updatedEmployee.bonusPercentage + `%</p>`);
+    $('#' + employee.employeeNumber).append(`<p>Bonus Total: $`+ updatedEmployee.totalBonus + `</p>`);
+    $('#' + employee.employeeNumber).append(`<p>Compensation: $` + updatedEmployee.totalCompensation + `</p>`);
+  }
+}
 
 function employeeBonus(employee) {
   // console.log("In employeeBonus");
