@@ -48,15 +48,18 @@ $(document).ready(function () {
 
 function runBonuses() {
   $('#employeeList').empty();
-  $('#employeeList').append('<th>Employee Name</th><th>Bonus Percentage</th><th>Bonus Amount</th><th>Total Compensation</th>');
+  $('#employeeList').append('<tr><th>Employee Name</th><th>Annual Salary</th><th>Employee Number</th><th>Review Rating</th><th>Bonus %</th><th>Bonus Amount</th><th>Total Compensation</th></tr>');
   for (let employee of employees) {
     let updatedEmployee = employeeBonus(employee);
     console.log(updatedEmployee);
     $('#employeeList').append(`<tr id="` + employee.employeeNumber + `"<tr>`);
-    $('#' + employee.employeeNumber).append(`<td>` + updatedEmployee.name + `</td`)
-    $('#' + employee.employeeNumber).append(`<td>` + updatedEmployee.bonusPercentage * 100 + `%</td`)
-    $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalBonus + `</td`)
-    $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalCompensation + `</td`)
+    $('#' + employee.employeeNumber).append(`<td>` + updatedEmployee.name + `</td`);
+    $('#' + employee.employeeNumber).append(`<td>$` + employee.annualSalary + `</td`);
+    $('#' + employee.employeeNumber).append(`<td>` + employee.employeeNumber + `</td`);
+    $('#' + employee.employeeNumber).append(`<td>` + employee.reviewRating + `</td`);
+    $('#' + employee.employeeNumber).append(`<td>` + updatedEmployee.bonusPercentage * 100 + `%</td`);
+    $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalBonus + `</td`);
+    $('#' + employee.employeeNumber).append(`<td>$` + updatedEmployee.totalCompensation + `</td`);
   }
   $('#runBonuses').attr('disabled', true).html('Bonuses Calculated');
 }
