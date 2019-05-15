@@ -48,15 +48,15 @@ $(document).ready(function() {
 
 function runBonuses() {
   $('#employeeList').empty();
+  $('#employeeList').append('<th>Employee Name</th><th>Bonus Percentage</th><th>Bonus Amount</th><th>Total Compensation</th>');
   for ( let employee of employees ) {
     let updatedEmployee = employeeBonus(employee);
     console.log(updatedEmployee);
-    $('#employeeList').append(`<li id="` + employee.employeeNumber + `"></li>`);
-    $('#' + employee.employeeNumber).append(`<h4>Employee Name:</h4>`);
-    $('#' + employee.employeeNumber).append(`<h4>` + updatedEmployee.name + `</h4>`);
-    $('#' + employee.employeeNumber).append(`<p>Bonus Percentage: `+ updatedEmployee.bonusPercentage * 100 + `%</p>`);
-    $('#' + employee.employeeNumber).append(`<p>Bonus Total: $`+ updatedEmployee.totalBonus + `</p>`);
-    $('#' + employee.employeeNumber).append(`<p>Compensation: $` + updatedEmployee.totalCompensation + `</p>`);
+    $('#employeeList').append(`<tr id="` + employee.employeeNumber + `"<tr>`);
+    $('#'+employee.employeeNumber).append(`<td>` + updatedEmployee.name + `</td`)
+    $('#'+employee.employeeNumber).append(`<td>` + updatedEmployee.bonusPercentage + `%</td`)
+    $('#'+employee.employeeNumber).append(`<td>$` + updatedEmployee.totalBonus + `</td`)
+    $('#'+employee.employeeNumber).append(`<td>$` + updatedEmployee.totalCompensation + `</td`)
   }
 }
 

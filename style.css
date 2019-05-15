@@ -18,21 +18,22 @@ button {
     text-transform: uppercase;
     font-size: 14px;
 }
-ul {
-    list-style: none;
+table {
+    margin-top: 25px;
+    width: 100%;
+    border-collapse: collapse;
 }
-li {
-    border: 1px solid white;
-    border-radius: 5px;
-    height: 125px;
-    float: left;
-    margin: 10px;
-    padding: 10px;
+#employeeList th {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: left;
+    background-color: rgba(34, 34, 34, .5);
 
 }
-li h4 {
-    margin: 8px 0px;
+#employeeList td, #employeeList th {
+    border: 1px solid rgba(256, 256, 256, .5);
+    padding: 10px;
 }
-li p {
-    margin: 2px;
+#employeeList tr:hover {
+    background-color: rgba(34, 34, 34, .25);
 }
